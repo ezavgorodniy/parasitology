@@ -1,0 +1,276 @@
+:root {
+  --color-text: #1f2328;
+  --color-muted: #656d76;
+  --color-border: #d8dee4;
+  --color-surface: #f6f8fa;
+  --color-accent: #2f6f4f;
+  --color-warning-bg: #fff4d6;
+  --color-warning-text: #7a4b00;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+h1 {
+  margin: 0.5rem 0;
+  font-size: 1.75rem;
+}
+
+.muted {
+  color: var(--color-muted);
+}
+
+/* ---- Layout ---- */
+
+.prototype-banner {
+  padding: 0.4rem 1rem;
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__logo {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.site-header__nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.site-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.site-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+/* ---- Chips and badges ---- */
+
+.chip {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: #fff;
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.chip--active {
+  border-color: var(--color-text);
+  background: var(--color-surface);
+  font-weight: 600;
+}
+
+.swatch {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--region-color);
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: var(--color-surface);
+  font-size: 0.75rem;
+}
+
+.badge--warning {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+/* ---- Explorer ---- */
+
+.explorer {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 800px) {
+  .explorer {
+    grid-template-columns: 1fr;
+  }
+}
+
+.species-switch,
+.system-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.animal-diagram {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+/* Opacity on the whole group (not per-shape fill-opacity) so overlapping
+   silhouette shapes don't render darker where they intersect */
+.region {
+  fill: var(--region-color);
+  opacity: 0.55;
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.15s;
+}
+
+.region--active {
+  opacity: 1;
+}
+
+.decor {
+  fill: var(--color-text);
+  pointer-events: none;
+}
+
+.explorer__panel {
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  align-self: start;
+}
+
+.explorer__panel h2 {
+  margin-top: 0;
+}
+
+.parasite-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.parasite-list a {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.parasite-list__name {
+  font-weight: 600;
+}
+
+.parasite-list__latin {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+/* ---- Catalog ---- */
+
+.catalog-group h2 {
+  font-size: 1.2rem;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.card__title {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.25rem;
+}
+
+/* ---- Parasite page ---- */
+
+.parasite-page {
+  max-width: 720px;
+}
+
+.parasite-page__latin {
+  margin-top: 0;
+  color: var(--color-muted);
+  font-size: 1.1rem;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.4rem 1rem;
+}
+
+.facts dt {
+  color: var(--color-muted);
+}
+
+.facts dd {
+  margin: 0;
+}
+
+.photo-placeholder {
+  display: grid;
+  place-items: center;
+  height: 200px;
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-muted);
+}
